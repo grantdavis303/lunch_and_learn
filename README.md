@@ -20,13 +20,17 @@ rails db:{drop,create,migrate,seed}
 - Ruby 3.2.2
 - Rails 7.1.2
 
+### APIs Used
+
+Rest Countries API
+
 ### Progress
 
 1 / 7 Tickets Completed
 
-- [ ] Initial Setup
-- [ ] End Point 1 - 
-- [ ] End Point 2 - 
+- [x] Initial Setup
+- [ ] End Point 1 - Get Recipes For A Particular Country
+- [ ] End Point 2 - In Progress
 - [ ] End Point 3 - 
 - [ ] End Point 4 - 
 - [ ] End Point 5 - 
@@ -38,14 +42,19 @@ Overall Goal
 
 - [ ] A user should be able search for cuisines by country and should also be able to learn more about that country's culture.
 
+The user should be able to:
+
+- [ ] Search for recipes by country
+- [ ] Mark specific recipes as 'favorite'
+- [ ] Learn more about a particular country
+
 Learning Goals
 
 - [ ] Expose an API that aggregates data from multiple external APIs
 - [ ] Expose an API that requires an authentication token
 - [ ] Implement basic authentication
-- [ ] Search for recipes by country
-- [ ] Mark specific recipes as 'favorite'
-- [ ] Learn more about a particular country
+- [ ] Expose an API for CRUD functionality
+- [ ] Determine completion criteria based on the needs of other developers
 - [ ] Test both API consumption and exposure, and use one mocking tool(VCR, Webmock)
 
 Technical Presentation
@@ -78,9 +87,7 @@ Testing
 
 ### Tests
 
-* X Total Tests (100% coverage on x/x LOC)
-* X Feature Tests (100% coverage on x/x LOC)
-* X Model Tests (100% coverage on x/x LOC)
+* 8 Total Tests (100% coverage on 91/91 LOC)
 
 ### Resources
 
@@ -89,3 +96,5 @@ No resources used for this project.
 ### Contributors
 
 * Grant Davis | [GitHub](https://github.com/grantdavis303), [LinkedIn](https://www.linkedin.com/in/grantdavis303/)
+
+Explore Redis for caching api query to RC API?

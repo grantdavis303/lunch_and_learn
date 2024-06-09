@@ -11,8 +11,6 @@ class Api::V1::RecipesController < ApplicationController
     edamam_facade = EdamamFacade.new
     all_recipes = edamam_facade.get_recipes(searched_for_country)
 
-    # Is it possible to set the default value of id to null/nil with the JSON API Serializer?
-    # render json: RecipeSerializer.new(all_recipes), status: 200
     render json: RecipeSerializer.new.serialized_json(all_recipes), status: 200
   end
 end

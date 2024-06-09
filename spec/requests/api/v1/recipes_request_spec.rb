@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Recipes Requests' do
+  xit 'processes a country or no country' do
+    json_response = File.read('spec/fixtures/all_countries.json')
+    stub_request(:get, "https://restcountries.com/v3.1/all").to_return(status: 200, body: json_response, headers: {})
+
+    get "/api/v1/recipes?country="
+    # Issue is that it's getting a random country every time and impossible to stub every possible response
+  end
+
   it 'returns a list of recipes with a country entered' do
     json_response = File.read('spec/fixtures/thailand_recipes.json')
     stub_request(:get, "https://api.edamam.com/api/recipes/v2?type=public&q=thailand&app_id=08e8c11c&app_key=#{Rails.application.credentials.edamam[:key]}").to_return(status: 200, body: json_response)

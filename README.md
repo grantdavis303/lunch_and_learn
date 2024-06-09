@@ -23,15 +23,24 @@ rails db:{drop,create,migrate,seed}
 ### APIs Used
 
 Rest Countries API
+Edamam Recipe Search API
+
+### Exposed End Points
+
+End Point 1
+`GET /api/v1/recipes?country=[query]`
+
+End Point 2
+`GET /api/v1/learning_resources?country=[query]`
 
 ### Progress
 
-1 / 7 Tickets Completed
+2 / 7 Tickets Completed
 
 - [x] Initial Setup
-- [ ] End Point 1 - Get Recipes For A Particular Country
-- [ ] End Point 2 - In Progress
-- [ ] End Point 3 - 
+- [x] End Point 1 - Get Recipes For A Particular Country
+- [x] End Point 2 - Get Learning Resources for a Particular Country
+- [ ] End Point 3 - User Registration
 - [ ] End Point 4 - 
 - [ ] End Point 5 - 
 - [ ] End Point 6 -
@@ -87,7 +96,12 @@ Testing
 
 ### Tests
 
-* 8 Total Tests (100% coverage on 91/91 LOC)
+* 34 Total Tests (415 / 418 LOC (99.28%) covered)
+
+* 6 Request Tests (187 / 190 LOC (98.42%) covered)
+* 10 Facade Tests (169 / 169 LOC (100.0%) covered)
+* 16 Service Tests (160 / 160 LOC (100.0%) covered)
+* 2 PORO Tests (69 / 69 LOC (100.0%) covered)
 
 ### Resources
 
@@ -97,4 +111,8 @@ No resources used for this project.
 
 * Grant Davis | [GitHub](https://github.com/grantdavis303), [LinkedIn](https://www.linkedin.com/in/grantdavis303/)
 
+
+
+
 Explore Redis for caching api query to RC API?
+Make sure to add fields that AREN'T in the response - US1

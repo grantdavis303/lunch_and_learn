@@ -47,9 +47,34 @@ RSpec.describe 'Learning Resources Requests' do
     expect(parsed_json[:data][:attributes][:images].count).to eq (10)
   end
 
-  xit '' do
-  end
+  it 'returns a list of empty learning resources when a country is entered (with no learning resources)' do
+    json_response = File.read('spec/fixtures/youtube_videos_tokelau.json')
+    stub_request(:get, "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCluQ5yInbeAkkeCndNnUhpw&q=tokelau&key=#{Rails.application.credentials.google[:key]}").to_return(status: 200, body: json_response)
 
-  xit '' do
+    json_response = File.read('spec/fixtures/tokelau_photos.json')
+    stub_request(:get, "https://api.unsplash.com/search/photos?query=tokelau&client_id=#{Rails.application.credentials.unsplash[:key]}").to_return(status: 200, body: json_response)
+
+    get '/api/v1/learning_resources?country=tokelau'
+
+    expect(response).to be_successful
+    expect(response.status).to eq (200)
+
+    parsed_json = JSON.parse(response.body, symbolize_names: true)
+
+    expect(parsed_json).to have_key (:data)
+    expect(parsed_json[:data]).to be_a (Hash)
+
+    expect(parsed_json[:data]).to have_key (:id)
+    expect(parsed_json[:data]).to have_key (:type)
+    expect(parsed_json[:data]).to have_key (:attributes)
+
+    expect(parsed_json[:data][:id]).to eq (nil)
+    expect(parsed_json[:data][:type]).to eq ('learning_resource')
+    expect(parsed_json[:data][:attributes]).to be_a (Hash)
+
+    expect(parsed_json[:data][:attributes][:country]).to eq ('tokelau')
+
+    expect(parsed_json[:data][:attributes][:video]).to eq ({})
+    expect(parsed_json[:data][:attributes][:images]).to eq ([])
   end
 end

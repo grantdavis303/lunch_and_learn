@@ -22,10 +22,11 @@ rails db:{drop,create,migrate,seed}
 
 ### Utilized APIs
 
-Rest Countries' All Countries API
 Edamam Recipe Search API
 Google's YouTube Video Search API
+Rest Countries' All Countries API
 Unsplash's Image Search API
+Geoapify API
 
 ### Exposed End Points
 
@@ -112,13 +113,13 @@ Testing
 
 ### Tests
 
-* 48 Total Tests (523 / 523 LOC (100.0%) covered)
+* 58 Total Tests (688 / 688 LOC (100.0%) covered)
 
-* 9 Request Tests (309 / 309 LOC (100.0%) covered) NOT DONE
-* 10 Facade Tests (172 / 172 LOC (100.0%) covered) DONE
-* 16 Service Tests (130 / 163 LOC (100.0%) covered) DONE
-* 2 PORO Tests (72 / 72 LOC (100.0%) covered) DONE
-* 11 Model Tests (69 / 69 LOC (100.0%) covered) DONE
+* 10 Request Tests (368 / 368 LOC (100.0%) covered)
+* 13 Facade Tests (229 / 229 LOC (100.0%) covered)
+* 21 Service Tests (238 / 238 LOC (100.0%) covered)
+* 3 PORO Tests (87 / 87 LOC (100.0%) covered)
+* 11 Model Tests (70 / 70 LOC (100.0%) covered)
 
 ### Resources
 

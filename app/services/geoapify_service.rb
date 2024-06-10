@@ -3,9 +3,8 @@ class GeoapifyService
     get_url("/v1/geocode/search?text=#{searched_for_country}&type=country&format=json")
   end
 
-### Get places from lat and lon
   def get_tourist_sites_from_coordinates(latitude, longitude)
-    
+    get_url("/v2/places?&categories=tourism&bias=proximity:#{longitude},#{latitude}")
   end
 
   def get_url(url)

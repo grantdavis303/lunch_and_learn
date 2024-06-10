@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe GeoapifyFacade do
   it 'exists' do
     facade = GeoapifyFacade.new
+
     expect(facade).to be_a (GeoapifyFacade)
   end
 
@@ -45,7 +46,7 @@ RSpec.describe GeoapifyFacade do
     }]
 
     result = facade.create_poros_for_tourist_sites(all_tourist_sites)
-    
+
     expect(result).to be_a (Array)
     expect(result[0]).to be_a (TouristSite)
     expect(result[0]).to have_attributes(

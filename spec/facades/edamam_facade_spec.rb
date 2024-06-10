@@ -3,13 +3,16 @@ require 'rails_helper'
 RSpec.describe EdamamFacade do
   it 'exists' do
     facade = EdamamFacade.new
+
     expect(facade).to be_a (EdamamFacade)
   end
 
   it '#get_recipes(args)' do
     facade = EdamamFacade.new
+
     json_response = File.read('spec/fixtures/thailand_recipes.json')
     stub_request(:get, "https://api.edamam.com/api/recipes/v2?type=public&q=thailand&app_id=08e8c11c&app_key=#{Rails.application.credentials.edamam[:key]}").to_return(status: 200, body: json_response)
+
     expect(facade.get_recipes('thailand')).to be_a (Array)
     expect(facade.get_recipes('thailand')[0]).to be_a (Recipe)
     expect(facade.get_recipes('thailand')[0]).to have_attributes(
@@ -22,10 +25,13 @@ RSpec.describe EdamamFacade do
 
   it '#create_poro_for_recipe(args)' do
     facade = EdamamFacade.new
+
     json_response = File.read('spec/fixtures/thailand_recipes.json')
     stub_request(:get, "https://api.edamam.com/api/recipes/v2?type=public&q=thailand&app_id=08e8c11c&app_key=#{Rails.application.credentials.edamam[:key]}").to_return(status: 200, body: json_response)
+
     service = EdamamService.new 
     response = service.get_url('/api/recipes/v2?type=public&q=thailand')
+
     expect(facade.create_poro_for_recipe('thailand', response)).to be_a (Array)
     expect(facade.create_poro_for_recipe('thailand', response)[0]).to be_a (Recipe)
     expect(facade.create_poro_for_recipe('thailand', response)[0]).to have_attributes(
@@ -38,8 +44,10 @@ RSpec.describe EdamamFacade do
 
   it '#create_recipe_poro(args)' do
     facade = EdamamFacade.new
+
     json_response = File.read('spec/fixtures/thailand_recipes.json')
     stub_request(:get, "https://api.edamam.com/api/recipes/v2?type=public&q=thailand&app_id=08e8c11c&app_key=#{Rails.application.credentials.edamam[:key]}").to_return(status: 200, body: json_response)
+
     hash = {
       :recipe => {
         :label => "Steamed Thailand Turkey Burger",
@@ -47,6 +55,7 @@ RSpec.describe EdamamFacade do
         :url=>"https://food52.com/recipes/21104-steamed-thailand-turkey-burger",
       }
     }
+
     expect(facade.create_recipe_poro('thailand', hash)).to be_a (Recipe)
     expect(facade.get_recipes('thailand')[0]).to have_attributes(
       :country => 'thailand',

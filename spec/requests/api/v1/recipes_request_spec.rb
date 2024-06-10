@@ -1,14 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Recipes Requests' do
-  xit 'processes a country or no country' do
-    json_response = File.read('spec/fixtures/all_countries.json')
-    stub_request(:get, "https://restcountries.com/v3.1/all").to_return(status: 200, body: json_response, headers: {})
-
-    get "/api/v1/recipes?country="
-    # Issue is that it's getting a random country every time and impossible to stub every possible response
-  end
-
   it 'returns a list of recipes with a country entered' do
     json_response = File.read('spec/fixtures/thailand_recipes.json')
     stub_request(:get, "https://api.edamam.com/api/recipes/v2?type=public&q=thailand&app_id=08e8c11c&app_key=#{Rails.application.credentials.edamam[:key]}").to_return(status: 200, body: json_response)
@@ -81,6 +73,24 @@ RSpec.describe 'Recipes Requests' do
     stub_request(:get, "https://api.edamam.com/api/recipes/v2?type=public&q=tokelau&app_id=08e8c11c&app_key=#{Rails.application.credentials.edamam[:key]}").to_return(status: 200, body: json_response)
 
     get '/api/v1/recipes?country=tokelau'
+
+    expect(response).to be_successful
+    expect(response.status).to eq (200)
+
+    parsed_json = JSON.parse(response.body, symbolize_names: true)
+
+    expect(parsed_json).to eq (
+      {
+        :data=>[]
+      }
+    )
+  end
+
+  it 'returns an empty data array if no country is passed in' do
+    json_response = File.read('spec/fixtures/no_recipes.json')
+    stub_request(:get, "https://api.edamam.com/api/recipes/v2?type=public&q=&app_id=08e8c11c&app_key=#{Rails.application.credentials.edamam[:key]}").to_return(status: 200, body: json_response)
+
+    get "/api/v1/recipes?country="
 
     expect(response).to be_successful
     expect(response.status).to eq (200)

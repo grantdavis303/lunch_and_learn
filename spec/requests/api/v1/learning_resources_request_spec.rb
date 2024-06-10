@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Learning Resources Requests' do
-  it 'returns a list of learning resources when a country is entered' do
+  it 'returns a video hash and photos array when a country is entered' do
     json_response = File.read('spec/fixtures/youtube_videos.json')
     stub_request(:get, "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCluQ5yInbeAkkeCndNnUhpw&q=laos&key=#{Rails.application.credentials.google[:key]}").to_return(status: 200, body: json_response)
 
@@ -37,7 +37,7 @@ RSpec.describe 'Learning Resources Requests' do
     expect(parsed_json[:data][:attributes][:video]).to have_key (:youtube_video_id)
     expect(parsed_json[:data][:attributes][:video][:title]).to eq ('A Super Quick History of Laos')
     expect(parsed_json[:data][:attributes][:video][:youtube_video_id]).to eq ('uw8hjVqxMXw')
-    
+
     expect(parsed_json[:data][:attributes][:images]).to be_a (Array)
     expect(parsed_json[:data][:attributes][:images][0]).to be_a (Hash)
     expect(parsed_json[:data][:attributes][:images][0]).to have_key (:alt_tag)
@@ -47,7 +47,7 @@ RSpec.describe 'Learning Resources Requests' do
     expect(parsed_json[:data][:attributes][:images].count).to eq (10)
   end
 
-  it 'returns a list of empty learning resources when a country is entered (with no learning resources)' do
+  it 'returns an empty video hash and empty photos array when a country is entered with no learning resources' do
     json_response = File.read('spec/fixtures/youtube_videos_tokelau.json')
     stub_request(:get, "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCluQ5yInbeAkkeCndNnUhpw&q=tokelau&key=#{Rails.application.credentials.google[:key]}").to_return(status: 200, body: json_response)
 

@@ -7,7 +7,7 @@ RSpec.describe EdamamFacade do
     expect(facade).to be_a (EdamamFacade)
   end
 
-  it '#get_recipes(args)' do
+  it '#get_recipes(searched_for_country)' do
     facade = EdamamFacade.new
 
     json_response = File.read('spec/fixtures/thailand_recipes.json')
@@ -23,7 +23,7 @@ RSpec.describe EdamamFacade do
       )
   end
 
-  it '#create_poro_for_recipe(args)' do
+  it '#create_poro_for_recipe(searched_for_country, response)' do
     facade = EdamamFacade.new
 
     json_response = File.read('spec/fixtures/thailand_recipes.json')
@@ -42,7 +42,7 @@ RSpec.describe EdamamFacade do
     )
   end
 
-  it '#create_recipe_poro(args)' do
+  it '#create_recipe_poro(searched_for_country, recipe)' do
     facade = EdamamFacade.new
 
     json_response = File.read('spec/fixtures/thailand_recipes.json')

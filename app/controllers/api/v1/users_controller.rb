@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
         render json: UserSerializer.new.serialized_json(user), status: 201
       end
     else
-      render json: { "error": "These passwords don't match" }, status: 400
+      render json: { "error": "Passwords do not match" }, status: 400
     end
   end
 end

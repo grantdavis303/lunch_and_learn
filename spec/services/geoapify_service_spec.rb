@@ -48,7 +48,7 @@ RSpec.describe GeoapifyService do
     expect(result[:features][0][:properties][:place_id]).to eq ('51038ef3ed1376fe3f5938edb7a7f54c4740f00103f901d5a50d050100000092030843616c7661697265')
   end
 
-  it '#get_url(args)' do
+  it '#get_url(url)' do
     service = GeoapifyService.new
 
     json_response = File.read('spec/fixtures/geo_coordinates.json')
@@ -73,7 +73,10 @@ RSpec.describe GeoapifyService do
 
   it '#api_connection' do
     service = GeoapifyService.new
-    expect(service.api_connection).to be_a (Faraday::Connection)
-    expect(service.api_connection.params[:apiKey]).to eq Rails.application.credentials.geoapify[:key]
+
+    result = service.api_connection
+
+    expect(result).to be_a (Faraday::Connection)
+    expect(result.params[:apiKey]).to eq (Rails.application.credentials.geoapify[:key])
   end
 end

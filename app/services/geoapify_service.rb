@@ -11,7 +11,7 @@ class GeoapifyService
     response = api_connection.get(url)
     JSON.parse(response.body, symbolize_names: true)
   end
-  
+
   def api_connection
     Faraday.new(
       url: 'https://api.geoapify.com',

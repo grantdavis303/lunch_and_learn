@@ -20,18 +20,34 @@ rails db:{drop,create,migrate,seed}
 - Ruby 3.2.2
 - Rails 7.1.2
 
-### APIs Used
+### Utilized APIs
 
-Rest Countries API
+Rest Countries' All Countries API
 Edamam Recipe Search API
+Google's YouTube Video Search API
+Unsplash's Image Search API
 
 ### Exposed End Points
 
-End Point 1
+End Point 1 - Get Recipes For A Particular Country
+
 `GET /api/v1/recipes?country=[query]`
 
-End Point 2
+End Point 2 - Get Learning Resources for a Particular Country
+
 `GET /api/v1/learning_resources?country=[query]`
+
+End Point 3 - User Registration
+
+`POST /api/v1/users`
+
+End Point 4 - Log In User
+
+`POST /api/v1/sessions`
+
+End Point 5 - Add Favorites
+
+`POST /api/v1/favorites`
 
 ### Progress
 
@@ -40,10 +56,10 @@ End Point 2
 - [x] Initial Setup
 - [x] End Point 1 - Get Recipes For A Particular Country
 - [x] End Point 2 - Get Learning Resources for a Particular Country
-- [ ] End Point 3 - User Registration
-- [ ] End Point 4 - 
-- [ ] End Point 5 - 
-- [ ] End Point 6 -
+- [x] End Point 3 - User Registration
+- [x] End Point 4 - Log In User
+- [x] End Point 5 - Add Favorites
+- [ ] End Point 6 - Get a User’s Favorites
 
 ### Goals
 
@@ -83,25 +99,26 @@ Feature Delivery
 
 Technical Quality
 
-- [ ] Project demonstrates abstraction and encapsulation in ways that make it easy to change (example: if an API changes, for example, FLickr to Unsplashed, we make changes in as few places as possible.). 
+- [ ] Project demonstrates abstraction and encapsulation in ways that make it easy to change (example: if an API changes, for example, FLickr to Unsplashed, we make changes in as few places as possible.).
 - [ ] Project shows a solid understanding of MVC principles (this may include but is not limited to: no logic in serializers, clean controllers, serializers and presenters to handle formatting rather than models etc.) and includes all expectations of numbers 1 and 2 above.
 
 Testing
 
-- [ ] Project achieves 90% or greater test coverage. 
-- [ ] In addition to “happy path”, project also includes “sad path”/edge case testing. 
-- [ ] At least one of the tests that require an external API call make use of VCR and/or Webmock for mocking. 
-- [ ] Tests check payload content a little deeper such as inspecting data type of an attribute. 
+- [ ] Project achieves 90% or greater test coverage.
+- [ ] In addition to “happy path”, project also includes “sad path”/edge case testing.
+- [ ] At least one of the tests that require an external API call make use of VCR and/or Webmock for mocking.
+- [ ] Tests check payload content a little deeper such as inspecting data type of an attribute.
 - [ ] Testing also checks that unnecessary information is NOT present in response data.
 
 ### Tests
 
-* 34 Total Tests (415 / 418 LOC (99.28%) covered)
+* 48 Total Tests (523 / 523 LOC (100.0%) covered)
 
-* 6 Request Tests (187 / 190 LOC (98.42%) covered)
-* 10 Facade Tests (169 / 169 LOC (100.0%) covered)
-* 16 Service Tests (160 / 160 LOC (100.0%) covered)
-* 2 PORO Tests (69 / 69 LOC (100.0%) covered)
+* 9 Request Tests (309 / 309 LOC (100.0%) covered) NOT DONE
+* 10 Facade Tests (172 / 172 LOC (100.0%) covered) DONE
+* 16 Service Tests (130 / 163 LOC (100.0%) covered) DONE
+* 2 PORO Tests (72 / 72 LOC (100.0%) covered) DONE
+* 11 Model Tests (69 / 69 LOC (100.0%) covered) DONE
 
 ### Resources
 
@@ -111,8 +128,5 @@ No resources used for this project.
 
 * Grant Davis | [GitHub](https://github.com/grantdavis303), [LinkedIn](https://www.linkedin.com/in/grantdavis303/)
 
-
-
-
-Explore Redis for caching api query to RC API?
-Make sure to add fields that AREN'T in the response - US1
+- Explore Redis for caching api query to RC API?
+- Make sure to add fields that AREN'T in the response - US1 - Testing for no unnecessary info

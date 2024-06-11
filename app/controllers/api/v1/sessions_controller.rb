@@ -13,7 +13,7 @@ class Api::V1::SessionsController < ApplicationController
         render json: { "error": "Bad credentials" }, status: 400
       end
     else
-      render json: { "error": "User doesn't exist" }, status: 400
+      render json: { "error": "User does not exist" }, status: 400
     end
   end
 end

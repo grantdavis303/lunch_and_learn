@@ -38,7 +38,6 @@ gem "bootsnap", require: false
 # Universal Gems
 gem "solargraph"
 gem "faraday"
-gem "jsonapi-serializer"
 
 group :development do
   gem "web-console"
@@ -57,10 +56,8 @@ end
 group :test do
   gem "capybara"
   gem "launchy"
-  # gem "orderly"
   gem "rspec-rails"
   gem "shoulda-matchers"
   gem "simplecov"
-  # gem "vcr"
   gem "webmock"
 end

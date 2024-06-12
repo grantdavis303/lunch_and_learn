@@ -170,9 +170,9 @@ Testing
 
 ### Tests
 
-* 66 Total Tests (843 / 843 LOC (100.0%) covered)
+* 66 Total Tests (901 / 901 LOC (100.0%) covered)
 
-* 18 Request Tests (457 / 457 LOC (100.0%) covered)
+* 18 Request Tests (503 / 503 LOC (100.0%) covered)
 * 13 Facade Tests (229 / 229 LOC (100.0%) covered)
 * 21 Service Tests (238 / 238 LOC (100.0%) covered)
 * 3 PORO Tests (87 / 87 LOC (100.0%) covered)

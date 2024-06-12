@@ -29,7 +29,7 @@ RSpec.describe EdamamFacade do
     json_response = File.read('spec/fixtures/thailand_recipes.json')
     stub_request(:get, "https://api.edamam.com/api/recipes/v2?type=public&q=thailand&app_id=08e8c11c&app_key=#{Rails.application.credentials.edamam[:key]}").to_return(status: 200, body: json_response)
 
-    service = EdamamService.new 
+    service = EdamamService.new
     response = service.get_url('/api/recipes/v2?type=public&q=thailand')
 
     expect(facade.create_poro_for_recipe('thailand', response)).to be_a (Array)

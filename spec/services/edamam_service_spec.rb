@@ -24,10 +24,10 @@ RSpec.describe EdamamService do
 
   it '#get_url(url)' do
     service = EdamamService.new
-    
+
     json_response = File.read('spec/fixtures/thailand_recipes.json')
     stub_request(:get, "https://api.edamam.com/api/recipes/v2?type=public&q=thailand&app_id=08e8c11c&app_key=#{Rails.application.credentials.edamam[:key]}").to_return(status: 200, body: json_response)
-    
+
     result = service.get_url('/api/recipes/v2?type=public&q=thailand')
 
     expect(result).to be_a (Hash)

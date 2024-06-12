@@ -5,7 +5,7 @@ RSpec.describe 'Favorites Requests' do
     user = User.create!(
       name: "Grant",
       email: "goodboy@ruffruff.com",
-      password: "treats4lyf", 
+      password: "treats4lyf",
       password_confirmation: "treats4lyf",
       api_key: "1234567890asdfghjkl"
     )
@@ -36,14 +36,14 @@ RSpec.describe 'Favorites Requests' do
 
   it 'adding a favorite - returns the correct response if the api key is not valid' do
     user = User.create!(
-      name: "Grant", 
-      email: "goodboy@ruffruff.com", 
-      password: "treats4lyf", 
-      password_confirmation: "treats4lyf", 
+      name: "Grant",
+      email: "goodboy@ruffruff.com",
+      password: "treats4lyf",
+      password_confirmation: "treats4lyf",
       api_key: "1234567890asdfghjkl"
     )
 
-    post '/api/v1/favorites', params: 
+    post '/api/v1/favorites', params:
     {
       "api_key": "1111111111111",
       "country": "thailand",
@@ -65,10 +65,10 @@ RSpec.describe 'Favorites Requests' do
 
   it 'getting favorites - returns the correct response if the api key is valid and the user has favorite recipes' do
     user = User.create!(
-      name: "Grant", 
-      email: "goodboy@ruffruff.com", 
-      password: "treats4lyf", 
-      password_confirmation: "treats4lyf", 
+      name: "Grant",
+      email: "goodboy@ruffruff.com",
+      password: "treats4lyf",
+      password_confirmation: "treats4lyf",
       api_key: "1234567890asdfghjkl"
     )
     fave1 = user.favorites.create!(
@@ -95,7 +95,7 @@ RSpec.describe 'Favorites Requests' do
     expect(parsed_json[:data]).to be_a (Array)
     expect(parsed_json[:data].count).to eq (2)
     expect(parsed_json[:data][0].keys.count).to eq (3)
-    expect(parsed_json[:data][0]).to have_key (:id)    
+    expect(parsed_json[:data][0]).to have_key (:id)
     expect(parsed_json[:data][0]).to have_key (:type)
     expect(parsed_json[:data][0]).to have_key (:attributes)
     expect(parsed_json[:data][0][:id]).to be_a (String)
@@ -113,7 +113,6 @@ RSpec.describe 'Favorites Requests' do
     expect(parsed_json[:data][0][:attributes][:recipe_title]).to eq ('Recipe 1 - Crab Fried Rice')
     expect(parsed_json[:data][0][:attributes][:recipe_link]).to eq ('https://www.tastingtable.com/.....')
     expect(parsed_json[:data][0][:attributes][:country]).to eq ('thailand')
-    # Can't test parsed_json[:data][0][:attributes][:created_at].to eq since it's in the past
   end
 
   it 'getting favorites - returns the correct response if the api key is valid and the user does not hav any favorite recipes' do

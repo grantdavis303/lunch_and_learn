@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users Requests' do
   it 'successfully creates a new user' do
-    post '/api/v1/users', params: 
+    post '/api/v1/users', params:
     {
         "name": "Odell",
         "email": "goodboy@ruffruff.com",
@@ -36,7 +36,7 @@ RSpec.describe 'Users Requests' do
   end
 
   it 'does not create a new user if the password and password confirmation do not match' do
-    post '/api/v1/users', params: 
+    post '/api/v1/users', params:
     {
         "name": "Odell",
         "email": "goodboy@ruffruff.com",
@@ -58,14 +58,14 @@ RSpec.describe 'Users Requests' do
 
   it 'does not create a new user if the email has already been taken' do
     user = User.create!(
-      name: "Grant", 
-      email: "goodboy@ruffruff.com", 
-      password: "treats4lyf", 
-      password_confirmation: "treats4lyf", 
+      name: "Grant",
+      email: "goodboy@ruffruff.com",
+      password: "treats4lyf",
+      password_confirmation: "treats4lyf",
       api_key: "1234567890asdfghjkl"
     )
     
-    post '/api/v1/users', params: 
+    post '/api/v1/users', params:
     {
         "name": "Odell",
         "email": "goodboy@ruffruff.com",

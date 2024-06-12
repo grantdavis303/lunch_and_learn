@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe 'Sessions Requests' do
   it 'logging in a user - returns the correct response if the credentials are valid' do
     user = User.create!(
-      name: "Grant", 
-      email: "goodboy@ruffruff.com", 
-      password: "treats4lyf", 
-      password_confirmation: "treats4lyf", 
+      name: "Grant",
+      email: "goodboy@ruffruff.com",
+      password: "treats4lyf",
+      password_confirmation: "treats4lyf",
       api_key: "1234567890asdfghjkl"
     )
 
-    post '/api/v1/sessions', params: 
+    post '/api/v1/sessions', params:
     {
       "email": "goodboy@ruffruff.com",
       "password": "treats4lyf"
@@ -44,14 +44,14 @@ RSpec.describe 'Sessions Requests' do
 
   it 'logging in a user - returns the correct response if the credentials are not valid' do
     user = User.create!(
-      name: "Grant", 
-      email: "goodboy@ruffruff.com", 
-      password: "treats4lyf", 
-      password_confirmation: "treats4lyf", 
+      name: "Grant",
+      email: "goodboy@ruffruff.com",
+      password: "treats4lyf",
+      password_confirmation: "treats4lyf",
       api_key: "1234567890asdfghjkl"
     )
 
-    post '/api/v1/sessions', params: 
+    post '/api/v1/sessions', params:
     {
       "email": "goodboy@ruffruff.com",
       "password": "treas4liferrr"
@@ -70,7 +70,7 @@ RSpec.describe 'Sessions Requests' do
   end
 
   it 'logging in a user - returns the correct response if the user does not exist' do
-    post '/api/v1/sessions', params: 
+    post '/api/v1/sessions', params:
     {
       "email": "goodboy@ruffruff.com",
       "password": "treas4liferrr"

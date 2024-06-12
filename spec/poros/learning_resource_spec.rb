@@ -22,6 +22,6 @@ RSpec.describe LearningResource do
     expect(learning_resource.images).to be_a (Array)
     expect(learning_resource.images[0]).to be_a (Hash)
     expect(learning_resource.images[0][:alt_tag]).to eq ('A beautiful view of mountains in Laos')
-    expect(learning_resource.images[0][:url]).to eq ('https://images.supercoolurl.com/123') 
+    expect(learning_resource.images[0][:url]).to eq ('https://images.supercoolurl.com/123')
   end
 end

@@ -21,7 +21,6 @@ RSpec.describe 'Recipes Requests' do
     expect(parsed_json[:data][0]).to have_key (:id)
     expect(parsed_json[:data][0]).to have_key (:type)
     expect(parsed_json[:data][0]).to have_key (:attributes)
-    # Can't test parsed_json[:data][0][:id].to be_a class since it's nil
     expect(parsed_json[:data][0][:type]).to be_a (String)
     expect(parsed_json[:data][0][:attributes]).to be_a (Hash)
     expect(parsed_json[:data][0][:id]).to eq (nil)
@@ -61,7 +60,6 @@ RSpec.describe 'Recipes Requests' do
     expect(parsed_json[:data][0]).to have_key (:id)
     expect(parsed_json[:data][0]).to have_key (:type)
     expect(parsed_json[:data][0]).to have_key (:attributes)
-    # Can't test parsed_json[:data][0][:id].to be_a class since it's nil
     expect(parsed_json[:data][0][:type]).to be_a (String)
     expect(parsed_json[:data][0][:attributes]).to be_a (Hash)
     expect(parsed_json[:data][0][:id]).to eq (nil)

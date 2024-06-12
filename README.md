@@ -10,15 +10,16 @@ Lunch and Learn is a pure backend RoR API designed to provide information about 
 
 ```
 [Fork and clone this repository]
+cd lunch_and_learn
 
 bundle install
 rails db:{drop,create,migrate,seed}
-
-cd lunch_and_learn
 rails s
 
 [Open Postman]
-[Test end points below]
+[Test end points below with localhost:3000]
+
+Ex. GET http://localhost:3000/api/v1/recipes?country=germany
 ```
 
 ### Versions
@@ -166,7 +167,7 @@ Testing
 - [x] In addition to “happy path”, project also includes “sad path”/edge case testing.
 - [x] At least one of the tests that require an external API call make use of VCR and/or Webmock for mocking.
 - [x] Tests check payload content a little deeper such as inspecting data type of an attribute.
-- [ ] Testing also checks that unnecessary information is NOT present in response data.
+- [x] Testing also checks that unnecessary information is NOT present in response data.
 
 ### Tests
 

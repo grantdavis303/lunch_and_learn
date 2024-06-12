@@ -30,6 +30,7 @@ RSpec.describe 'Favorites Requests' do
     expect(parsed_json).to be_a (Hash)
     expect(parsed_json).to have_key (:success)
 
+    expect(parsed_json[:success]).to be_a (String)
     expect(parsed_json[:success]).to eq ('Favorite added successfully')
   end
 
@@ -58,6 +59,7 @@ RSpec.describe 'Favorites Requests' do
     expect(parsed_json).to be_a (Hash)
     expect(parsed_json).to have_key (:error)
 
+    expect(parsed_json[:error]).to be_a (String)
     expect(parsed_json[:error]).to eq ('No user found with that key')
   end
 
@@ -102,6 +104,11 @@ RSpec.describe 'Favorites Requests' do
     expect(parsed_json[:data][0][:attributes]).to have_key (:recipe_link)
     expect(parsed_json[:data][0][:attributes]).to have_key (:country)
     expect(parsed_json[:data][0][:attributes]).to have_key (:created_at)
+
+    expect(parsed_json[:data][0][:attributes][:recipe_title]).to be_a (String)
+    expect(parsed_json[:data][0][:attributes][:recipe_link]).to be_a (String)
+    expect(parsed_json[:data][0][:attributes][:country]).to be_a (String)
+    expect(parsed_json[:data][0][:attributes][:created_at]).to be_a (String)
   end
 
   it 'getting favorites - returns the correct response if the api key is valid and the user does not hav any favorite recipes' do

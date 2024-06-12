@@ -40,10 +40,15 @@ RSpec.describe 'Learning Resources Requests' do
 
     expect(parsed_json[:data][:attributes][:images]).to be_a (Array)
     expect(parsed_json[:data][:attributes][:images][0]).to be_a (Hash)
+
     expect(parsed_json[:data][:attributes][:images][0]).to have_key (:alt_tag)
     expect(parsed_json[:data][:attributes][:images][0]).to have_key (:url)
+
+    expect(parsed_json[:data][:attributes][:images][0][:alt_tag]).to be_a (String) 
     expect(parsed_json[:data][:attributes][:images][0][:alt_tag]).to eq ('time lapse photography of flying hot air balloon')
+    expect(parsed_json[:data][:attributes][:images][0][:url]).to be_a (String) 
     expect(parsed_json[:data][:attributes][:images][0][:url]).to eq ('https://images.unsplash.com/photo-1540611025311-01df3cef54b5?ixid=M3w2MjA1ODN8MHwxfHNlYXJjaHwxfHxsYW9zfGVufDB8fHx8MTcxNzg5MTgyN3ww&ixlib=rb-4.0.3')
+
     expect(parsed_json[:data][:attributes][:images].count).to eq (10)
   end
 
@@ -74,6 +79,8 @@ RSpec.describe 'Learning Resources Requests' do
 
     expect(parsed_json[:data][:attributes][:country]).to eq ('tokelau')
 
+    expect(parsed_json[:data][:attributes][:video]).to be_a (Hash)
+    expect(parsed_json[:data][:attributes][:images]).to be_a (Array)
     expect(parsed_json[:data][:attributes][:video]).to eq ({})
     expect(parsed_json[:data][:attributes][:images]).to eq ([])
   end

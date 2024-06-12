@@ -27,6 +27,10 @@ RSpec.describe 'Users Requests' do
     expect(parsed_json[:data][:attributes]).to have_key (:name)
     expect(parsed_json[:data][:attributes]).to have_key (:email)
     expect(parsed_json[:data][:attributes]).to have_key (:api_key)
+
+    expect(parsed_json[:data][:attributes][:name]).to be_a (String)
+    expect(parsed_json[:data][:attributes][:email]).to be_a (String)
+    expect(parsed_json[:data][:attributes][:api_key]).to be_a (String)
   end
 
   it 'does not create a new user if the password and password confirmation do not match' do
@@ -45,6 +49,7 @@ RSpec.describe 'Users Requests' do
 
     expect(parsed_json).to be_a (Hash)
     expect(parsed_json).to have_key (:error)
+    expect(parsed_json[:error]).to be_a (String)
     expect(parsed_json[:error]).to eq ('Passwords do not match')
   end
 
@@ -72,6 +77,7 @@ RSpec.describe 'Users Requests' do
 
     expect(parsed_json).to be_a (Hash)
     expect(parsed_json).to have_key (:error)
+    expect(parsed_json[:error]).to be_a (String)
     expect(parsed_json[:error]).to eq ('Email has already been taken')
   end
 end

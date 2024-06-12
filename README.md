@@ -4,7 +4,7 @@
 
 ### About
 
-Lunch and Learn is an API.
+Lunch and Learn is a pure backend RoR API designed to provide information about cuisines and popular tourist sites for a particular country. This API is to be paired with a frontend application where a user can create an account, log in to their account, search for recipes, favorite recipes, as well as find videos and photos for a country.
 
 ### Setup
 
@@ -13,6 +13,12 @@ Lunch and Learn is an API.
 
 bundle install
 rails db:{drop,create,migrate,seed}
+
+cd lunch_and_learn
+rails s
+
+[Open Postman]
+[Test end points below]
 ```
 
 ### Versions
@@ -22,21 +28,25 @@ rails db:{drop,create,migrate,seed}
 
 ### Utilized APIs
 
-Edamam Recipe Search API
-Google's YouTube Video Search API
-Rest Countries' All Countries API
-Unsplash's Image Search API
-Geoapify API
+* Edamam's Recipe Search API
+* Google's YouTube Video Search API
+* Rest Countries' All Countries API
+* Unsplash's Image Search API
+* Geoapify's Places API and Geocoding API
 
 ### Exposed End Points
 
 End Point 1 - Get Recipes For A Particular Country
 
-`GET /api/v1/recipes?country=[query]`
+```
+GET /api/v1/recipes?country=[query]
+```
 
 End Point 2 - Get Learning Resources for a Particular Country
 
-`GET /api/v1/learning_resources?country=[query]`
+```
+GET /api/v1/learning_resources?country=[query]
+```
 
 End Point 3 - User Registration
 
@@ -83,7 +93,16 @@ Accept: application/json
 
 End Point 6 - Get a User’s Favorites
 
-```GET /api/v1/favorites?api_key=[valid api key]
+```
+GET /api/v1/favorites?api_key=[valid api key]
+Content-Type: application/json
+Accept: application/json
+```
+
+End Point 7 (Bonus) - Get Tourist Sites For A Particular Country
+
+```
+GET /api/v1/tourist_sites?country=[query]
 Content-Type: application/json
 Accept: application/json
 ```
@@ -104,22 +123,22 @@ Accept: application/json
 
 Overall Goal
 
-- [ ] A user should be able search for cuisines by country and should also be able to learn more about that country's culture.
+- [x] A user should be able search for cuisines by country and should also be able to learn more about that country's culture.
 
 The user should be able to:
 
-- [ ] Search for recipes by country
-- [ ] Mark specific recipes as 'favorite'
-- [ ] Learn more about a particular country
+- [x] Search for recipes by country
+- [x] Mark specific recipes as 'favorite'
+- [x] Learn more about a particular country
 
 Learning Goals
 
-- [ ] Expose an API that aggregates data from multiple external APIs
-- [ ] Expose an API that requires an authentication token
-- [ ] Implement basic authentication
-- [ ] Expose an API for CRUD functionality
-- [ ] Determine completion criteria based on the needs of other developers
-- [ ] Test both API consumption and exposure, and use one mocking tool(VCR, Webmock)
+- [x] Expose an API that aggregates data from multiple external APIs
+- [x] Expose an API that requires an authentication token
+- [x] Implement basic authentication
+- [x] Expose an API for CRUD functionality
+- [x] Determine completion criteria based on the needs of other developers
+- [x] Test both API consumption and exposure, and use one mocking tool (VCR, Webmock)
 
 Technical Presentation
 
@@ -146,14 +165,14 @@ Testing
 - [x] Project achieves 90% or greater test coverage.
 - [x] In addition to “happy path”, project also includes “sad path”/edge case testing.
 - [x] At least one of the tests that require an external API call make use of VCR and/or Webmock for mocking.
-- [ ] Tests check payload content a little deeper such as inspecting data type of an attribute.
+- [x] Tests check payload content a little deeper such as inspecting data type of an attribute.
 - [ ] Testing also checks that unnecessary information is NOT present in response data.
 
 ### Tests
 
-* 66 Total Tests (806 / 806 LOC (100.0%) covered)
+* 66 Total Tests (843 / 843 LOC (100.0%) covered)
 
-* 18 Request Tests (426 / 426 LOC (100.0%) covered)
+* 18 Request Tests (457 / 457 LOC (100.0%) covered)
 * 13 Facade Tests (229 / 229 LOC (100.0%) covered)
 * 21 Service Tests (238 / 238 LOC (100.0%) covered)
 * 3 PORO Tests (87 / 87 LOC (100.0%) covered)
@@ -166,6 +185,3 @@ No resources used for this project.
 ### Contributors
 
 * Grant Davis | [GitHub](https://github.com/grantdavis303), [LinkedIn](https://www.linkedin.com/in/grantdavis303/)
-
-- Explore Redis for caching api query to RC API?
-- Make sure to add fields that AREN'T in the response - US1 - Testing for no unnecessary info

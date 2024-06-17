@@ -143,23 +143,23 @@ Learning Goals
 
 Technical Presentation
 
-- [ ] Student presents their code and is able to talk about all of the presentation points below.
+- [x] Student presents their code and is able to talk about all of the presentation points below.
 
 Presentation Points
 
-- [ ] Demonstration of understanding for project’s learning goals
-- [ ] Demonstration of functional completeness using Postman and live demo
-- [ ] Discussion of technical quality & code organization
-- [ ] Discussion of test coverage (happy and sad path and edge case testing)
+- [x] Demonstration of understanding for project’s learning goals
+- [x] Demonstration of functional completeness using Postman and live demo
+- [x] Discussion of technical quality & code organization
+- [x] Discussion of test coverage (happy and sad path and edge case testing)
 
 Feature Delivery
 
-- [ ] API satisfies the exact needs of the frontend developers. No unnecessary information is sent in a response.
+- [x] API satisfies the exact needs of the frontend developers. No unnecessary information is sent in a response.
 
 Technical Quality
 
-- [ ] Project demonstrates abstraction and encapsulation in ways that make it easy to change (example: if an API changes, for example, FLickr to Unsplashed, we make changes in as few places as possible.).
-- [ ] Project shows a solid understanding of MVC principles (this may include but is not limited to: no logic in serializers, clean controllers, serializers and presenters to handle formatting rather than models etc.) and includes all expectations of numbers 1 and 2 above.
+- [x] Project demonstrates abstraction and encapsulation in ways that make it easy to change (example: if an API changes, for example, FLickr to Unsplashed, we make changes in as few places as possible.).
+- [x] Project shows a solid understanding of MVC principles (this may include but is not limited to: no logic in serializers, clean controllers, serializers and presenters to handle formatting rather than models etc.) and includes all expectations of numbers 1 and 2 above.
 
 Testing
 

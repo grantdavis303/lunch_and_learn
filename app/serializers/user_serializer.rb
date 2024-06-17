@@ -3,8 +3,8 @@ class UserSerializer
     {
       "data":
         {
-          "type": "user",
           "id": user[:id].to_s,
+          "type": "user",
           "attributes": {
             "name": user[:name],
             "email": user[:email],
